@@ -15,6 +15,24 @@ public class SimpleDate {
     public String toString() {
         return this.day + "." + this.month + "." + this.year;
     }
+    
+    public boolean equals(Object object) {
+        if (object == null || (object.getClass() != this.getClass())) {
+            return false;
+        }
+        
+        if (object == this) {
+            return true; 
+        }
+        
+        SimpleDate date = (SimpleDate) object; 
+        
+        if ((date.day == this.day) && (date.month == this.month) && (date.year == this.year)) {
+            return true; 
+        }
+        
+        
+   return false;  }
 
     public boolean earlier(SimpleDate other) {
         if (this.year < other.year) {

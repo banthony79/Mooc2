@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -41,22 +39,23 @@ public class Box implements Packable {
     return sum; }
     
     public void add(Item item) {
-        double x = this.capacity; 
-        if (this.capacity - item.weight() > 0) {
-            list.add(item);
-            x = x + item.weight(); 
-            System.out.println(x);
-            this.capacity = this.capacity - x; 
-            
-            
-        }
+        double remainingWeight = (this.capacity - weight()); 
+       if (item.weight() < remainingWeight) {
+           System.out.println("Remaining weight: " + remainingWeight); 
+           list.add(item); 
+           //System.out.println(weight()); 
+           System.out.println(item.getTitle() + "added"); 
+       }
+          
     }
     
     
     
     @Override 
     public String toString() {
-        return "Box: " + list.size() + " items, total weight " +  this.capacity  + " kg"; 
+        return "Box: " + list.size() + " items, total weight " +  String.format("%.1f", weight())  + " kg"; 
     }
+    
+}
     
 }

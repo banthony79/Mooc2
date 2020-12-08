@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Box implements Packable {
     
     private double capacity; 
-    private ArrayList<Item> list; 
+    private ArrayList<Packable> list; 
    
    
     
@@ -34,29 +34,26 @@ public class Box implements Packable {
     
      public double weight() {
          double sum = 0; 
-         for (Item item: list) {
+         for (Packable item: list) {
             sum+=item.weight(); 
          }
      
     return sum; }
     
-    public void add(Item item) {
-        double x = this.capacity; 
-        if (this.capacity - item.weight() > 0) {
-            list.add(item);
-            x = x + item.weight(); 
-            System.out.println(x);
-            this.capacity = this.capacity - x; 
-            
-            
-        }
+     public void add(Packable item) {
+        double remainingWeight = (this.capacity - weight()); 
+       if (item.weight() < remainingWeight) { 
+           list.add(item); 
+          
+       }
+
     }
     
     
     
     @Override 
     public String toString() {
-        return "Box: " + list.size() + " items, total weight " +  this.capacity  + " kg"; 
+        return "Box: " + list.size() + " items, total weight " +  String.format("%.1f", weight())  + " kg"; 
     }
     
 }

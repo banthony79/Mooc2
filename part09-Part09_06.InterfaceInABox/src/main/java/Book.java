@@ -8,7 +8,7 @@
  *
  * @author brycelooyenga
  */
-public class Book extends Item {
+public class Book extends Item implements Packable {
     
    public Book(String artist, String title, double weight) {
        super(artist, title, weight);
@@ -22,7 +22,7 @@ public class Book extends Item {
     
     @Override
     public String toString() {
-        return this.getArtist() + ": " + this.getTitle() + this.weight(); 
+        return this.getTitle() + ": " + this.getArtist(); 
     }
 }
 

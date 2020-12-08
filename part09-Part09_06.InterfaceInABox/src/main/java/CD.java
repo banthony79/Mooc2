@@ -8,7 +8,7 @@
  *
  * @author brycelooyenga
  */
-public class CD extends Item {
+public class CD extends Item implements Packable {
     
     private int publicationYear; 
     
@@ -26,7 +26,7 @@ public class CD extends Item {
     
     @Override 
     public String toString() {
-        return this.getArtist() + ": " + this.getTitle() + " (" + this.publicationYear + ")"; 
+        return this.getTitle()  + ": " + this.getArtist() + " (" + this.publicationYear + ")"; 
     }
     
 }

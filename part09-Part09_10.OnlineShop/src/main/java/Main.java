@@ -1,4 +1,7 @@
 
+import java.util.Scanner;
+
+
 
 public class Main {
 
@@ -29,12 +32,47 @@ public class Main {
        for (String product: warehouse.products()) {
            System.out.println(product);*/
        
-       Item item = new Item("milk", 4, 2);
+      /* Item item = new Item("milk", 4, 2);
         System.out.println("an item that contains 4 milks has the total price of " + item.price());
         System.out.println(item);
         item.increaseQuantity();
-        System.out.println(item);
+        System.out.println(item); /*
+       
+       */
+      
+      /* ShoppingCart cart = new ShoppingCart();
+        cart.add("milk", 3);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
+
+        cart.add("buttermilk", 2);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
+
+        cart.add("milk", 3);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n");
+
+        cart.add("milk", 3);
+        cart.print();
+        System.out.println("cart price: " + cart.price() + "\n"); */
+      
+       Warehouse warehouse = new Warehouse();
+        warehouse.addProduct("coffee", 5, 10);
+        warehouse.addProduct("milk", 3, 20);
+        warehouse.addProduct("cream", 2, 55);
+        warehouse.addProduct("bread", 7, 8);
+
+        Scanner scanner = new Scanner(System.in);
+
+        Store store = new Store(warehouse, scanner);
+        store.shop("John"); 
+     
+     
+   //coffee<enter>bread<enter>water<enter><enter>
 
     }
+    
+    
 }
 

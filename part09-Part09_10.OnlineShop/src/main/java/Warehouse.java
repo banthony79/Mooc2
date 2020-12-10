@@ -16,12 +16,12 @@ import java.util.Set;
  */
 public class Warehouse {
     
-    private Map<String, Integer> map;
+    private Map<String, Integer> products;
     private Map<String, Integer> inventory;
     
     
     public Warehouse() {
-        this.map = new HashMap<>(); 
+        this.products = new HashMap<>(); 
         this.inventory = new HashMap<>(); 
         
     }
@@ -29,15 +29,25 @@ public class Warehouse {
     public void addProduct(String product, int price, int stock) {
        inventory.put(product, stock); 
         for (int i = 0; i < stock; i++) { 
-            map.put(product, price); 
+            products.put(product, price); 
                         
         }
     }
+
+    public Map<String, Integer> getProducts() {
+        return products;
+    }
+
+    public Map<String, Integer> getInventory() {
+        return inventory;
+    }
+    
+    
     
     public int price(String product) {
-      if (!map.containsKey(product)) {
+      if (!products.containsKey(product)) {
           return -99; }
-      return map.get(product); 
+      return products.get(product); 
     } 
     
     public Set<String> products() {
@@ -49,7 +59,7 @@ public class Warehouse {
     
     
     public int stock(String product) {
-        if (!map.containsKey(product)) {
+        if (!products.containsKey(product)) {
             return 0; 
         }
      return inventory.get(product);

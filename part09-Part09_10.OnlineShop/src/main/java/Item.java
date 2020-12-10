@@ -22,7 +22,7 @@ public class Item {
     }
     
     public int price() {
-        return this.unitPrice * quantity;  
+        return this.unitPrice * this.quantity;  
     }
     
     public void increaseQuantity() {
@@ -33,6 +33,13 @@ public class Item {
        return this.product + ": " + this.quantity; 
     }
     
+    public String getName() {
+        return this.product; 
+    }
+    
+    public int getQty() {
+        return this.quantity; 
+    }
     
     
     

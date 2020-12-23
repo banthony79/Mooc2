@@ -9,9 +9,27 @@ import java.util.stream.Collectors;
 public class ReadingFilesPerLine {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        // test the method here
+        
 
+    }
+    
+    
+    public static List<String> read(String file) {
+         ArrayList<String> list = new ArrayList<>(); 
+        try { Scanner fileScanner = new Scanner(file);
+        while (fileScanner.hasNextLine()) {
+            list.add(fileScanner.nextLine()); 
+        }
+        
+         ArrayList<String> values = list.stream().map(s -> s)
+        .collect(Collectors.toCollection(ArrayList::new));
+         
+        } catch (Exception e) {
+            System.out.println("file not found");
+        }
+        
+  
+   return new ArrayList<>(); 
     }
 
 }
